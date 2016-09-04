@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<!--Optimitized for Mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<title>Test File</title>
+	<!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified Materialize CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" type="text/css" media="screen,projection">
+  	<!--JQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  	<!-- Compiled and minified Materialize JavaScript -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  	
+
+</head>
+
+<body>
+	
+<nav class="yellow" role="navigation">
+	<!--Navigation Bar on high resolution Displays-->
+	<div class="nav-wrapper container">
+		<a id="logo-container" href="#" class="brand-logo center waves-effect">Test Run HTML</a>
+		<ul class="left hide-on-med-and-down">
+			<li><a href="#" class="waves-effect">Dummy Link 1</a></li>
+		</ul>
+	<!--Mobile Side Navigation Bar-->
+		<ul id="nav-mobile" class="side-nav">
+			<li><a href="#" class="waves-effect">Dummy Link 1</a></li>
+		</ul>
+		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+
+<div class="container center">
+	<div class="row">
+	<!--Preloaded Text div-->
+		<div id="preloadedtext">
+			<h5 style="color:red">The title is Default Page</h5>
+			<br/><br/>
+			<a class="waves-effect waves-light btn" id="retriever"><i class="material-icons md-48 left">announcement</i>Click here to know more..!</a>
+		</div>
+		<br/><br/>
+	<!--Custom AJAX Loaded text Div-->
+		<div id="ajaxLoadedText"></div>
+	</div>
+	
+</div>
+<!--Mobile Menu Activation-->
+<script>
+        $('.button-collapse').sideNav({
+             edge: 'right', // Choose the horizontal origin
+             closeOnClick: true // Closes side-nav on <a> clicks
+               }
+             );
+        $('.button-collapse').sideNav('hide');
+           $(document).sideNav('hide');
+</script>
+<!--Custom JavaScript-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//AJAX Request to the server
+		$('#retriever').click(function(){
+			$('#ajaxLoadedText').load("ajaxLoadedText.html");
+		});
+		//Click event on the div to make it hide
+		$('#ajaxLoadedText').click(function() {
+			$('#ajaxLoadedText').html('');
+		});
+	});
+</script>
+</body>
+
+</html>
